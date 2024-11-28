@@ -2,6 +2,8 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import MessagesList from '@/components/MessageList';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   return (
@@ -11,7 +13,8 @@ export default function Home() {
       <Header />
 
       <MessagesList /> 
-
+        <SpeedInsights />
+        <Analytics />
       <Footer />
     </div>
   );

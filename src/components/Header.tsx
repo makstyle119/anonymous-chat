@@ -11,9 +11,9 @@ const Header = () => {
                 Anonymous Chat
             </h1>
             <p 
-                className="text-sm text-gray-200"
+                className="text-md text-gray-200"
             >
-                Connect anonymously and chat freely
+                Quick, anonymous chats (<b>15-min</b> limit)
             </p>
         </header>
     )
