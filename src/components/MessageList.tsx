@@ -1,6 +1,6 @@
 import Message from "./Message";
 import { getFirestore } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import deleteOldMessages from "@/utils/deleteOlderMessages";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { COLLECTION_NAME } from "@/utils/constants";
@@ -14,6 +14,7 @@ interface MessageType {
 
 const MessagesList: React.FC = () => {
     const [messages, setMessages] = useState<MessageType[]>([]);
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
     const db = getFirestore();
 
     useEffect(() => {
@@ -39,8 +40,14 @@ const MessagesList: React.FC = () => {
         return () => unsubscribe();
     }, [db]);
 
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
+
     return (
-        <div className="space-y-2 pt-24 pb-16 px-6">
+        <div className="space-y-2 pt-24 pb-20 px-6 bg-gray-900">
             {messages.map((msg) => (
                 <Message
                     key={msg.id}
@@ -49,6 +56,7 @@ const MessagesList: React.FC = () => {
                     timestamp={new Date(msg.timestamp.seconds * 1000)}
                 />
             ))}
+            <div ref={messagesEndRef}></div>
         </div>
     );
 };

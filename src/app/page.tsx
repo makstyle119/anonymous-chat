@@ -6,7 +6,7 @@ import MessagesList from '@/components/MessageList';
 export default function Home() {
   return (
     <div 
-      className="min-h-screen bg-lightBackground dark:bg-darkBackground text-lightText dark:text-darkText flex flex-col sm:flex-row"
+      className="h-screen bg-gray-900 flex flex-col justify-between"
     >
       <Header />
 
