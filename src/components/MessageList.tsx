@@ -1,3 +1,4 @@
+"use client";
 import Message from "./Message";
 import { getFirestore } from "firebase/firestore";
 import React, { useEffect, useRef, useState } from "react";

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Header = () => {
@@ -5,11 +6,13 @@ const Header = () => {
         <header 
             className="bg-white/30 backdrop-blur-md text-center py-4 px-6 rounded-b-lg shadow-md w-full fixed top-0 left-0 z-10"
         >
-            <h1 
-                className="text-2xl font-bold text-white"
-            >
-                Anonymous Chat
-            </h1>
+            <Link href="/">
+                <h1 
+                    className="text-2xl font-bold text-white"
+                >
+                    Anonymous Chat
+                </h1>
+            </Link>
             <p 
                 className="text-md text-gray-200"
             >
